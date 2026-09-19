@@ -1,0 +1,147 @@
+
+
+   /* sm */
+   @media  screen and (min-width: 640px) {
+         
+   
+    
+  }
+  
+  
+  /* md */
+  @media  screen and (min-width: 768px) { 
+    
+  
+  }
+
+
+
+  
+  /* lg */
+  @media  screen and (min-width: 1024px) {
+  
+    nav {
+
+        .container {
+           
+            .left h3 {
+    
+                font-size: 24px;
+                line-height: 28px;
+            }
+
+              
+            .left p {
+    
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+      
+  }
+
+   section {
+
+
+
+   
+    .right-part{
+
+
+        padding: 40px;
+
+        .second{ 
+
+            .title   h1 {
+
+                 font-size: 36px;
+                 
+            
+
+              
+            }
+        }
+        #des{
+            font-size: 18px;
+            line-height: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .preparation-time {
+
+            #detailsPreparationTime h3 {
+
+                font-size: 16px;
+                
+            }
+
+            #detailsPreparationTime p{
+
+                font-size: 14px;
+                
+            }
+        }
+
+        .tabs  button {
+
+            font-size: 15px;
+        }
+
+
+    }
+
+
+     
+    .left-part { 
+
+        .rates { 
+
+            
+            #reviews {
+                
+                line-height: 20px;
+                font-size: 14px;
+          
+            }
+        }
+
+        .features{
+
+           
+            .icon {
+
+                font-size: 24px;
+            }
+ 
+        }
+
+        .features  p{
+         
+            font-size: 14px;
+            
+            
+        }
+
+        .img img {
+           border-top-left-radius: 1.5rem; 
+            border-bottom-left-radius: 1.5rem; 
+            border-top-right-radius: 0; 
+            
+        } 
+
+    }
+   }
+        
+  }  
+  
+  /* xl */
+  @media  screen and (min-width: 1280px) {
+  }
+  
+  
+  
+  
+  /* xxl */
+  @media  screen and (min-width: 1536px) {
+      
+  }
