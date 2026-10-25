@@ -1,32 +1,40 @@
 
-var level = document.getElementById("level");
-var country = document.getElementById("country");
+let level = document.getElementById("level");
+let country = document.getElementById("country");
 
-var mealName = document.getElementById("meal-title");
-var des = document.getElementById("des");
+let mealName = document.getElementById("meal-title");
+let des = document.getElementById("des");
 
-var preparationTime = document.getElementById("preparation-time");
-var extended = document.getElementById("extend");
-var required = document.getElementById("require");
-var details = document.getElementById("detailsPreparationTime");
-
-
-var mealImg = document.getElementById("picture");
-var rate = document.getElementById("rate");
-var reviews = document.getElementById("reviews");
-var prepTime = document.getElementById("prep-time");
-var cookTime = document.getElementById("cook-time");
-var servings = document.getElementById("servings");
+let preparationTime = document.getElementById("preparation-time");
+let extended = document.getElementById("extend");
+let required = document.getElementById("require");
+let details = document.getElementById("detailsPreparationTime");
 
 
-var ingredientsList = document.getElementById("ingredients-list");
-var instructionsList = document.getElementById("instructions-list");
-var nutritionList = document.getElementById("nutrition-list");
-var tipsList = document.getElementById("tips-list");
-var tryAnotherRecipe = document.getElementById("another-recipe");
+let mealImg = document.getElementById("picture");
+let rate = document.getElementById("rate");
+let reviews = document.getElementById("reviews");
+let prepTime = document.getElementById("prep-time");
+let cookTime = document.getElementById("cook-time");
+let servings = document.getElementById("servings");
 
 
-var meals = [{
+let ingredientsList = document.getElementById("ingredients-list");
+let instructionsList = document.getElementById("instructions-list");
+
+let nutritionList = document.getElementById("nutrition-list");
+let contentCal = document.querySelector("#contentCal");
+let contentProtien = document.querySelector("#contentProt");
+let contentCarb= document.querySelector("#contentCarb");
+let contentFat = document.querySelector("#contentFat");
+let contentFiber = document.querySelector("#contentFiber")
+let contentSodium = document.querySelector("#contentSodium");
+
+let tipsList = document.getElementById("tips-tab-pane");
+let tryAnotherRecipe = document.getElementById("another-recipe");
+
+
+let meals = [{
     
     //path
     img: './img/section-hero.png',
@@ -57,8 +65,22 @@ var meals = [{
         
     ],
 
-    // nutrition
 
+    // nutrition
+    contentCal: '580 kcal',
+    protien: '36g',
+    Carbohydrates: '32g',
+    Fat:'32g',
+    Fiber:"8g",
+    Sodium:'820mg',
+
+    tips:['Salt eggplant to remove bitterness','Don\'t skip the resting time - it helps set the layers',
+      
+     'Use ground beef if lamb is unavailable',
+      
+      'Make ahead and reheat for easier serving'],
+
+  
     
 
 }];
@@ -76,7 +98,7 @@ function displayMeal(){
 
 
    
-    var randomMeal = Math.floor(Math.random() * meals.length);
+    let randomMeal = Math.floor(Math.random() * meals.length);
     mealName.innerHTML= meals[randomMeal].title;
     des.innerHTML= meals[randomMeal].des;
     level.innerHTML= meals[randomMeal].level;
@@ -89,9 +111,13 @@ function displayMeal(){
     prepTime.innerHTML = meals[randomMeal].prepTime;
     cookTime.innerHTML = meals[randomMeal].cookTime;
     servings.innerHTML = meals[randomMeal].servings;
+    contentCal.innerHTML= meals[randomMeal].contentCal;
+    contentProtien.innerHTML= meals[randomMeal].protien;
+    contentCarb.innerHTML = meals[randomMeal].Carbohydrates;
+    contentFat.innerHTML = meals[randomMeal].Fat;  
+    contentFiber.innerHTML = meals[randomMeal].Fiber;  
+    contentSodium.innerHTML = meals[randomMeal].Sodium;
 
-
-        
      if (Number(meals[randomMeal].prepTimeNumber) + Number(meals[randomMeal].cookTimeNumber) > 45 ){
          
         preparationTime.style.display='flex'
@@ -114,10 +140,10 @@ function displayMeal(){
 
 
    //   INGREDIENTS display
-     for ( var i =0 ; i < meals[randomMeal].ingredients.length; i++){
+     for ( let i =0 ; i < meals[randomMeal].ingredients.length; i++){
 
 
-        var li = document.createElement("li");
+        let li = document.createElement("li");
         li.innerHTML = meals[randomMeal].ingredients[i];
 
         ingredientsList.appendChild(li);
@@ -134,6 +160,16 @@ function displayMeal(){
          instructionsList.appendChild(li);
        }
 
+
+       //tips display
+
+       for(let i=0 ; i<meals[randomMeal].tips.length;i++){
+        let li = document.createElement("li");
+        li.innerHTML=`<i style="color: var(--amber-600)" class="fa-solid fa-circle-check"></i>  ${meals[randomMeal].tips[i]}`;
+        li.style.marginBottom="24px";
+       
+        tipsList.appendChild(li);
+      }
 
 
 
