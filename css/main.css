@@ -12,6 +12,30 @@ body {
 
     background-color: #FFFBEB;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+   
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FFDBD2; 
+    border-radius: 10px;
+    background-clip: padding-box;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
 /* start header */
 nav {
     padding: 16px 24px;
