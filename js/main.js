@@ -23,6 +23,7 @@ var ingredientsList = document.getElementById("ingredients-list");
 var instructionsList = document.getElementById("instructions-list");
 var nutritionList = document.getElementById("nutrition-list");
 var tipsList = document.getElementById("tips-list");
+var tryAnotherRecipe = document.getElementById("another-recipe");
 
 
 var meals = [{
@@ -41,9 +42,7 @@ var meals = [{
     des: 'Traditional layered eggplant casserole with lamb',
     level:'Intermediate',
     country:'Mediterranean',
-    preparationTime:'Extended Preparation Time',
-    preparationTimeDetail : 'This recipe requires more than 45 minutes to prepare. Plan accordingly!',
-    ingredients: ['3 large eggplants, sliced','500g ground lamb',
+   ingredients: ['3 large eggplants, sliced','500g ground lamb',
      '400g canned tomatoes','1 onion, diced','3 cloves garlic, minced',
      '500ml béchamel sauce','100g parmesan cheese','Cinnamon and oregano',
     'Olive oil'],
@@ -53,6 +52,9 @@ var meals = [{
         'Cook ground lamb with onion and garlic. Add tomatoes, cinnamon, oregano. Simmer 20 minutes.',
         'Preheat oven to 180°C (350°F).',
         'Layer in baking dish: eggplant, meat sauce, eggplant, meat sauce. Top with béchamel and parmesan.',
+        
+        'Bake for 45 minutes until golden. Let rest 15 minutes before serving.',
+        
     ],
 
     // nutrition
@@ -66,9 +68,13 @@ var meals = [{
 
 
 
+let preparationTimeExtend='Extended Preparation Time';
+let preparationTimeDetail ='This recipe requires more than 45 minutes to prepare. Plan accordingly!';
 
 
 function displayMeal(){
+
+
    
     var randomMeal = Math.floor(Math.random() * meals.length);
     mealName.innerHTML= meals[randomMeal].title;
@@ -94,8 +100,8 @@ function displayMeal(){
         details.style.flexDirection="flex-column";
        
 
-        extended.innerHTML= meals[randomMeal].preparationTime;
-        required.innerHTML= meals[randomMeal].preparationTimeDetail;
+        extended.innerHTML= preparationTimeExtend;
+        required.innerHTML= preparationTimeDetail;
      }
      else {
         preparationTime.style.display='none'
@@ -103,16 +109,30 @@ function displayMeal(){
      }
 
     
-     for ( var i =0 ; i< meals[randomMeal].instructions.length; i++){
+     ingredientsList.innerHTML="";
+     instructionsList.innerHTML= "";
+
+
+   //   INGREDIENTS display
+     for ( var i =0 ; i < meals[randomMeal].ingredients.length; i++){
 
 
         var li = document.createElement("li");
-        li.innerHTML = meals[randomMeal].instructions[i];
+        li.innerHTML = meals[randomMeal].ingredients[i];
 
         ingredientsList.appendChild(li);
+     
 
-       
+        
      }
+
+       // Instructions display
+       for(let i=0 ; i<meals[randomMeal].instructions.length;i++){
+         let li = document.createElement("li");
+         li.innerHTML= meals[randomMeal].instructions[i];
+         li.style.marginBottom="24px";
+         instructionsList.appendChild(li);
+       }
 
 
 

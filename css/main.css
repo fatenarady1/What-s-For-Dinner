@@ -5,6 +5,9 @@
 /* bootstrap */
 @import url('./bootstrap.min.css');
 
+/* colors */
+@import url('./colors.css');
+
 body {
 
     background-color: #FFFBEB;
@@ -85,17 +88,14 @@ nav {
 section {
    
     padding: 32px 24px;
+   
     height:  750px;
     
-    
-    /* .meal {
-        padding: 32px 24px;
-        max-width: ;
-    } */
+   
      .right-part{
-          
+
      
-        padding: 20px;
+    
         .first {
             gap: 12px;
             margin-bottom: 12px;
@@ -199,10 +199,17 @@ section {
 
         .tab-content {
 
+           height: 350px;
+         
             #home-tab-pane {
                 background-color: #FFF9EC;
-                height: 350px;
+              
             }
+
+          
+
+
+            
         }
 
        }
@@ -212,6 +219,7 @@ section {
         font-size: 12px;
         color : oklch(55.1% .027 264.364);
         border: 0;
+        margin-top: 32px;
     }
         
 
@@ -227,15 +235,35 @@ section {
         
         border-bottom: 2px solid  #e55c00;
     }
-   
+
+
+    .another-recipe{
+        border-top: 1px solid var(--gray-200);
+        margin-top: 32px;
+        padding-top: 24px;
+    }
+
+    #another-recipe{
+       
+        background-image: linear-gradient(to right , var(--orange-500), var(--red-500));
+       color: white;
+       padding: 8px 24px;
+       border-radius: 12px;
+       font-weight: 600;
+       transition: all 1s ease;
+    }
+
+    #another-recipe:hover{
+        background-image: linear-gradient(to right , var(--orange-600), var(--red-600));
+        transform: scale(1.05);
+    }
         
      }
-
+    
 
 
      .left-part {
 
-        height: 400px;
         .rates {
 
             top: 24px;
@@ -339,3 +367,77 @@ section {
 }
 }
 /* end section */
+/* 
+li::marker {
+    color: #FF6900;
+} */
+
+/* ingredients-list-style */
+
+#ingredients-list {
+    list-style: none;
+    counter-reset: item;
+    padding: 0;
+    margin-bottom: 32px;
+     
+
+}
+
+#ingredients-list li {
+    counter-increment: item;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+
+}
+
+#ingredients-list li::before {
+    /* margin-bottom: 10px; */
+    content: counter(item);
+    font-weight: 700;
+    background: #FF6900;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+  
+/* instructions-list-style */
+
+#instructions-list{
+    list-style: none;
+    counter-reset: item;
+    padding: 0;
+     
+
+}
+
+#instructions-list li {
+    counter-increment: item;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+
+}
+
+#instructions-list li::before {
+   
+    content: counter(item);
+    font-weight: 700;
+    background: #FF6900;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+  
